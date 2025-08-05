@@ -1,16 +1,14 @@
 #include <Servo.h>
-//Set up RF channel min & max (Min: 1000 microseconds, Max: 1980 microseconds)
 int PWM_MIN = 1000;
 int PWM_MAX = 1980; 
-//Pin declarations
 int ch1 = A0; // RF Channel 1
 int ch2 = A1; // RF Channel 2
 int ch3 = A2; // RF Channel 3
 int ch4 = A3; // RF Channel 4
 int S1p = 3;  // PWM Pin (Rudder)
-int S2p = 5;  // PWM Pin (Rudder)
-int S3p = 6;  // PWM Pin (Rudder)
-int S4p = 9;  // PWM Pin (Rudder)
+int S2p = 5;  // PWM Pin (Left Aileron)
+int S3p = 6;  // PWM Pin (Right Aileron)
+int S4p = 9;  // PWM Pin (Elevator)
 int M1p = 10; // PWM Pin (Engine 1)
 int M2p = 11; // PWM Pin (Engine 2)
 Servo S1;
@@ -34,12 +32,11 @@ S3.attach(S3p);
 S4.attach(S4p);
 M1.attach(M1p);
 M2.attach(M2p);
-// Arm Engine 1
+// arms the esc's 
 M1.writeMicroseconds(PWM_MAX);
 delay(5000);
 M1.writeMicroseconds(PWM_MIN);
 delay(10000);
-// Arm Engine 2
 M2.writeMicroseconds(PWM_MAX);
 delay(5000);
 M2.writeMicroseconds(PWM_MIN);
@@ -52,11 +49,11 @@ int channel1 = pulseIn(ch1, HIGH); //Yaw stick
 int channel2 = pulseIn(ch2, HIGH); //Pitch stick
 int channel3 = pulseIn(ch3, HIGH); //Mode switch button
 int channel4 = pulseIn(ch4, HIGH); //Engine shutoff/on 
-int ch1map = map(channel1, PWM_MIN, PWM_MAX, 50, 130); //Map RF Min/Max to Servo Min/max
-int ch2map = map(channel2, PWM_MIN, PWM_MAX, 50, 130); //Map RF Min/Max to Servo MIn/max
+int ch1map = map(channel1, PWM_MIN, PWM_MAX, 50, 130); //Map RF Min/Max to Servo Min/max in degrees
+int ch2map = map(channel2, PWM_MIN, PWM_MAX, 50, 130); //Map RF Min/Max to Servo MIn/max in degrees
 Serial.println(channel1);
 Serial.println(channel2);
-if(channel4 < 1300) //If engine shutoff
+if(channel4 < 1300) //If engine shutoff button is clicked
 {
 M1.write(PWM_MIN); //Engine 1 shutoff
 M2.write(PWM_MIN); //Engine 2 shutoff
