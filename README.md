@@ -1,4 +1,4 @@
-Media Gallery (Project photos & videos): [Galler](https://drive.google.com/file/d/1SPYw6z6G-a-g61HMILaSSkglKnjjScF-/view?usp=drive_link)
+Media Gallery (Project photos & videos): [Gallery](https://drive.google.com/file/d/1SPYw6z6G-a-g61HMILaSSkglKnjjScF-/view?usp=drive_link)
 
 The plane telemetry page is only a display and doesn't have any backend coded yet.
 
