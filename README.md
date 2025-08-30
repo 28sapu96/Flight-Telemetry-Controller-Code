@@ -1,5 +1,3 @@
-Media Gallery (Project photos & videos): [Gallery](https://drive.google.com/drive/folders/1k9YQ1htvXo1EJOiFQFl6aRuX-_bBvqpu?usp=sharing)
-
 The plane telemetry page is only a display and doesn't have any backend coded yet.
 
 The arduino code works.
